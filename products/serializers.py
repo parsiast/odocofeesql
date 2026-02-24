@@ -13,7 +13,7 @@ def validate_image_extension(value):
 class ItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = Item
-        fields = ['category','name','description','price1','image','discount']
+        fields = ['id','category','name','description','price1','image','discount']
 
     def validate_image(self, value):
         return validate_image_extension(value)
