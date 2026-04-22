@@ -26,7 +26,10 @@ INSTALLED_APPS = [
     'drf_spectacular_sidecar',
     'dashboard',
     'products',
+    'articles',
+    'shoping',
 ]
+
 
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
@@ -71,16 +74,20 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SPECTACULAR_SETTINGS = {
-    "TITLE": "see project",
-    "DESCRIPTION": "API documentation for see project",
+    "TITLE": "odo project",
+    "DESCRIPTION": "API documentation for odo project",
     "VERSION": "1.0.0",
     "SERVE_INCLUDE_SCHEMA": True,
+    "SWAGGER_UI_DIST": "SIDECAR",
+    "SWAGGER_UI_FAVICON_HREF": "SIDECAR",
+    "SWAGGER_UI_SETTINGS": {
+        "persistAuthorization": True,
+    }
 }
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-        'dashboard.authentication.CookieJWTAuthentication',
     ],
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }

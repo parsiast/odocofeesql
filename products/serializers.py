@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from .models import Category , Item
+from .models import Category, Item, Images
+
 
 def validate_image_extension(value):
     allowed_extensions = ["jpg", "jpeg", "png", "webp"]
@@ -17,6 +18,12 @@ class ItemSerializer(serializers.ModelSerializer):
 
     def validate_image(self, value):
         return validate_image_extension(value)
+
+class   ImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Images
+        fields = ['id','image']
+
 
 
 class CategorySerializer(serializers.ModelSerializer):

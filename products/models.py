@@ -19,6 +19,11 @@ class Item (models.Model):
     description = models.TextField()
     price1 = models.IntegerField()
     discount = models.IntegerField(default=0)
-    image = models.ImageField(upload_to='pics/')
+    image = models.ImageField(upload_to='pics')
     def __str__(self):
         return f"{self.category.title} - {self.name}"
+
+
+class Images(models.Model):
+    item = models.ForeignKey(Item, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='pics')

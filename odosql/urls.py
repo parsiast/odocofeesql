@@ -21,17 +21,19 @@ from drf_spectacular.views import (
     SpectacularAPIView,
     SpectacularRedocView
 )
-from dashboard.views import CookieTokenObtainPairView
+from rest_framework_simplejwt.views import TokenObtainPairView
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('admincookie/', CookieTokenObtainPairView.as_view(), name="admincookie"),
+    path('admintoken/', TokenObtainPairView.as_view(), name="admincookie"),
     path('swagger/', SpectacularSwaggerView.as_view(url_name='schema'), name="swagger"),
     path('schema/', SpectacularAPIView.as_view(), name="schema"),
     path('redoc/', SpectacularRedocView.as_view(url_name="schema"), name="redoc"),
     path("products/", include("products.urls")),
     path("userapis/", include("dashboard.urls")),
+    path("articles/", include("articles.urls")),
+    path("shoping/", include("shoping.urls")),
 ]
 if settings.DEBUG: urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

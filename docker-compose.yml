@@ -1,9 +1,7 @@
 services:
   backend:
-    dns:
-      - 8.8.8.8
-      - 1.1.1.1
     build: .
+    image: django_backend:latest
     container_name: django_backend
     restart: always
     ports:
@@ -12,14 +10,12 @@ services:
       - .env
     environment:
       DJANGO_SETTINGS_MODULE: odosql.settings.development
-
     volumes:
       - .:/app
+      - ./media/pics:/app/media/pics
     depends_on:
       db:
         condition: service_healthy
-
-
   db:
     image: mysql:8.0
     container_name: odosql

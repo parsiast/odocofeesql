@@ -1,6 +1,5 @@
 from rest_framework import status
 from rest_framework.permissions import AllowAny
-
 from .models import Category, Item
 from .serializers import ItemSerializer ,CategorySerializer
 from rest_framework.response import Response
@@ -75,7 +74,7 @@ class CategoryGets(APIView):
     permission_classes = [AllowAny]
 
     @extend_schema(
-        summary="Get single category",
+        summary="Get category",
         responses={200: CategorySerializer},
         tags=["showcategory (AllowAny)"],
     )

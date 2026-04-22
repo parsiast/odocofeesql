@@ -9,11 +9,11 @@ ALLOWED_HOSTS = ["*","127.0.0.1", "localhost"]
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ.get('DB_NAME'),
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PASSWORD'),
-        'HOST': os.environ.get('DB_HOST'),
-        'PORT': os.environ.get('DB_PORT'),
+        'NAME': os.environ.get('DB_NAME',"odosql"),
+        'USER': os.environ.get('DB_USER',"root"),
+        'PASSWORD': os.environ.get('DB_PASSWORD',"@Parsia1377"),
+        'HOST': os.environ.get('DB_HOST',"127.0.0.1"),
+        'PORT': os.environ.get('DB_PORT',"3306"),
     }
 }
 
